@@ -1,6 +1,6 @@
 /// Simple LCOV coverage threshold checker.
 /// Usage:
-///   dart run tool/coverage_check.dart --lcov coverage/lcov.info --min 0
+///   dart run tool/coverage_check.dart --lcov coverage/lcov.info --min 100
 ///
 /// Exits 0 if coverage >= min, otherwise exits 1.
 library string_calculator_kata.tool.coverage_check;
