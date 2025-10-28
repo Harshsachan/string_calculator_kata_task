@@ -1,16 +1,58 @@
-# string_calculator_kata_task
+# String Calculator — Incubyte TDD Kata (Dart)
 
-A new Flutter project.
 
-## Getting Started
+## Requirements covered
+- `"" -> 0`
+- Any count of numbers, comma delimiter
+- Newlines as delimiters (e.g. `1\n2,3 -> 6`)
+- Custom delimiter header: `//;\n1;2`, `//[***]\n1***2***3`
+- Negatives throw: `negative numbers not allowed -1,-2` (lists all)
+- Extension: multiple bracketed delimiters `//[d1][d2]`
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+## Quick start
+```bash
+dart pub get
+dart test
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## All Test cases via cli 
+# Empty -> 0
+dart run lib/main.dart ""
+# 0
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# Single number
+dart run lib/main.dart "1"
+# 1
+
+# Two numbers (comma)
+dart run lib/main.dart "1,5"
+# 6
+
+# Any amount
+dart run lib/main.dart "1,2,3,4,5"
+# 15
+
+# Newlines allowed (real newline via $'...')
+dart run lib/main.dart $'1\n2,3'
+# 6
+
+# Custom delimiter (single char)
+dart run lib/main.dart $'//;\n1;2'
+# 3
+
+# Custom delimiter (multi-char)
+dart run lib/main.dart $'//[***]\n1***2***3'
+# 6
+
+# Mix newline with custom delimiter
+dart run lib/main.dart $'//;\n1;2\n3'
+# 6
+
+# Negative number -> error (stderr, exit code 1)
+dart run lib/main.dart "1,-2,3"
+# Invalid argument(s): negative numbers not allowed -2
+
+# Multiple negatives -> all listed (stderr, exit code 1)
+dart run lib/main.dart "-1,-2,3,-4"
+# Invalid argument(s): negative numbers not allowed -1,-2,-4
+```
