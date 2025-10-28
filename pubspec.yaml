@@ -1,0 +1,11 @@
+name: string_calculator_kata_task
+description: Incubyte TDD Kata — String Calculator (Dart, SOLID, Testing)
+version: 1.0.0
+publish_to: "none"
+
+environment:
+  sdk: ">=3.3.0 <4.0.0"
+
+dev_dependencies:
+  test: ^1.25.2
+  very_good_analysis: ^6.0.0
